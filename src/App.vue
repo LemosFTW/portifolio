@@ -1,26 +1,59 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <HeaderComponent :fields="fields" />
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import HeaderComponent from './components/HeaderComponent.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HeaderComponent
+  },
+  data() {
+    return {
+      fields: [
+        { title: 'About Me', description: '', externalContent: false },
+        { title: 'Academic Life', description: '', externalContent: false },
+        { title: 'Projects', description: '' , externalContent: false},
+        { title: 'Experience', description: '',externalContent: false },
+        { title: '', imageUrl: '../assets/linkedinIcon.jpg', externalContent: true },
+        { title: '', imageUrl: '../assets/githubIcon.jpg', externalContent: true },
+      ],
+      imageProfile: '../assets/profile.jpg',
+      name: 'Rodrigo',
+      surname: 'Fernandes',
+      description: 'I am a Software Engeneer, passionate about gain tech knowledge and improve my self.',
+      academicLife: [
+        { title: 'Bachelors in Computer Science and Engineering', University: 'New University of Lisbon, FCT', year: '2021 - 2024' },
+        { title: 'Post Graduated in Cibersecurity', description: 'European University', year: '2024 - 2025' }
+      ],
+      projects: [
+        { title: 'Project 1', description: 'Description 1', year: '2021', link: ''},
+        { title: 'Project 2', description: 'Description 2', year: '2022', link: ''},
+        { title: 'Project 3', description: 'Description 3', year: '2023', link: ''},
+        { title: 'Project 4', description: 'Description 4', year: '2024', link: ''},
+      ],
+      experience: [
+        { title: 'Software Engeneer', company: 'Company 1', year: '2022 - 2023' },
+        { title: 'Software Engeneer', company: 'Company 2', year: '2022 - 2023' },
+        { title: 'Software Engeneer', company: 'Company 3', year: '2023 - 2024' },
+    ]
+    }
   }
 }
+
+
+
+
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body {
+  background-color: #080808;
+  font-family: Arial, Helvetica, sans-serif;
+
 }
 </style>
