@@ -1,16 +1,24 @@
 <template>
-  <HeaderComponent :fields="fields" />
 
+  <div class="centerContainer">
+
+    <HeaderComponent :fields="fields" :icons="icons" />
+
+    <DescriptionComponent :description="description"/>
+    <img src="assets/profile.jpg" alt="teste"  loading="eager"> 
+  </div>
 </template>
 
 <script>
 
 import HeaderComponent from './components/HeaderComponent.vue'
+import DescriptionComponent from './components/descriptionComponent.vue';
 
 export default {
   name: 'App',
   components: {
-    HeaderComponent
+    HeaderComponent,
+    DescriptionComponent
   },
   data() {
     return {
@@ -18,9 +26,11 @@ export default {
         { title: 'About Me', description: '', externalContent: false },
         { title: 'Academic Life', description: '', externalContent: false },
         { title: 'Projects', description: '' , externalContent: false},
-        { title: 'Experience', description: '',externalContent: false },
-        { title: '', imageUrl: '../assets/linkedinIcon.jpg', externalContent: true },
-        { title: '', imageUrl: '../assets/githubIcon.jpg', externalContent: true },
+        { title: 'Experience', description: '',externalContent: false }
+      ],
+      icons : [
+      { title: '', imageUrl: '../assets/linkedinIcon.jpg', externalContent: true },
+      { title: '', imageUrl: '../assets/githubIcon.jpg', externalContent: true }
       ],
       imageProfile: '../assets/profile.jpg',
       name: 'Rodrigo',
@@ -52,8 +62,15 @@ export default {
 
 <style>
 body {
+  /* display: flex; */
   background-color: #080808;
   font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.centerContainer{
+padding-right: 50px;
+padding-left: 50px;
 
 }
 </style>
