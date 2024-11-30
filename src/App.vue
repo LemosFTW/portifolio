@@ -1,6 +1,5 @@
 <template>
-
-  <div class="centerContainer">
+  <div class="headerFixed">
     <HeaderComponent :fields="fields" :icons="icons" @section-click="handleSectionClick" />
   </div>
   <h1 class="title">{{ fields[0].title }}</h1>
@@ -201,5 +200,21 @@ body {
   text-align: center;
   margin-top: 50px;
 
+}
+
+.headerFixed {
+  margin-right: 50px;
+  margin-left: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #080808;
+
+}
+
+.centerContainer:first-of-type {
+  padding-top: 80px;
 }
 </style>

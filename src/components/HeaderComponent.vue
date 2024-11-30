@@ -27,6 +27,7 @@ export default {
     flex-direction: row;
     background-color: #1B1B1B;
     justify-content: space-around;
+    border-radius: 10px;
 
 }
 
