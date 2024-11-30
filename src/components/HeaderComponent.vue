@@ -7,7 +7,7 @@
 
         <div v-for="icon in icons" :key="icon.title">
             <h1>
-                <img :src="icon.imageUrl" alt="test">
+                <img :src="icon.imageUrl" alt="test" class="iconLink">
             </h1>
         </div>
     </div>
@@ -42,5 +42,9 @@ export default {
 .container img{
     width: 20px;
     height: 20px;
+}
+.iconLink{
+    /* Remove the background of the image */
+    background-color: transparent;
 }
 </style>

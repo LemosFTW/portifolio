@@ -1,20 +1,22 @@
 <template>
 
   <div class="centerContainer">
-
-    <HeaderComponent :fields="fields" :icons="icons"  @section-click="handleSectionClick"/>
+    <HeaderComponent :fields="fields" :icons="icons" @section-click="handleSectionClick" />
+  </div>
+  <h1 class="title">{{ fields[0].title }}</h1>
+  <div class="centerContainer">
 
     <div class="gridHalf">
 
       <img src="@/assets/profile.jpg" alt="teste" class="imageProfile" loading="eager">
-    
+
       <div class="descriptionContainer">
         <h1 class="name">{{ name }} {{ surname }}</h1>
         <DescriptionComponent :description="description" />
       </div>
 
 
-      
+
     </div>
 
 
@@ -29,21 +31,43 @@
           </div>
         </div>
       </div>
-      
+
       <div class="academicImageContainer">
-        <img 
-          src="https://www.fct.unl.pt/sites/default/files/imagecache/l740/imagens/noticias/2021/02/campusfct.png" 
-          alt="Academic illustration" 
-          class="academicImage"
-        >
-        <img 
-          src="https://forum.pt/images/IADE_1.jpg" 
-          alt="Academic illustration" 
-          class="academicImage"
-        >
+        <img src="https://www.fct.unl.pt/sites/default/files/imagecache/l740/imagens/noticias/2021/02/campusfct.png"
+          alt="Academic illustration" class="academicImage">
+        <img src="https://forum.pt/images/IADE_1.jpg" alt="Academic illustration" class="academicImage">
       </div>
-        
+
     </div>
+
+    <h1 class="title">{{ fields[2].title }}</h1>
+    <div class="gridHalf">
+      <div>
+        <div v-for="project in projects" :key="project.title">
+          <div>
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description }}</p>
+            <p>{{ project.year }}</p>
+            <a v-if="project.link" :href="project.link">
+              Ver projeto
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h1 class="title">{{ fields[3].title }}</h1>
+    <div class="gridHalf">
+      <div>
+        <div v-for="exp in experience" :key="exp.title">
+          <div>
+            <h3>{{ exp.title }}</h3>
+            <p>{{ exp.company }} - {{ exp.year }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -93,10 +117,10 @@ export default {
   methods: {
     handleSectionClick(title) {
       const titles = document.querySelectorAll('.title');
-      const targetTitle = Array.from(titles).find(element => 
+      const targetTitle = Array.from(titles).find(element =>
         element.textContent.trim().toLowerCase() === title.toLowerCase()
       );
-      
+
       if (targetTitle) {
         targetTitle.scrollIntoView({ behavior: 'smooth' });
       }
@@ -146,6 +170,7 @@ body {
 .name {
   color: white;
 }
+
 .academicLifeContainer {
   color: white;
   align-self: start;
@@ -171,10 +196,10 @@ body {
   border-radius: 10px;
 }
 
-.title{
+.title {
   color: white;
   text-align: center;
   margin-top: 50px;
-  
+
 }
 </style>
