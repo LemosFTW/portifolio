@@ -33,12 +33,14 @@ export default {
 .container h1 {
     color: #9C9C9C;
     font-size: 14px;
-
-
 }
 
 .container h1:hover {
     color: #FFFFFF;
     font-size: 14px;
+}
+.container img{
+    width: 20px;
+    height: 20px;
 }
 </style>
