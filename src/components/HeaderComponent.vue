@@ -2,7 +2,7 @@
     <div class="container">
 
         <div v-for="field in fields" :key="field.title">
-            <h1>{{ field.title }}</h1>
+            <h1 @click="$emit('section-click', field.title)">{{ field.title }}</h1>
         </div>
 
         <div v-for="icon in icons" :key="icon.title">

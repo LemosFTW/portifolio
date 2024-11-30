@@ -2,18 +2,47 @@
 
   <div class="centerContainer">
 
-    <HeaderComponent :fields="fields" :icons="icons" />
-
+    <HeaderComponent :fields="fields" :icons="icons"  @section-click="handleSectionClick"/>
 
     <div class="gridHalf">
 
       <img src="@/assets/profile.jpg" alt="teste" class="imageProfile" loading="eager">
-
+    
       <div class="descriptionContainer">
         <h1 class="name">{{ name }} {{ surname }}</h1>
         <DescriptionComponent :description="description" />
       </div>
 
+
+      
+    </div>
+
+
+    <h1 class="title">{{ fields[1].title }}</h1>
+    <div class="gridHalf">
+      <div class="academicLifeContainer">
+        <div v-for="academic in academicLife" :key="academic.title">
+          <div class="academicUniversity">
+            <h3>{{ academic.title }}</h3>
+            <p>{{ academic.university }} - {{ academic.year }}</p>
+
+          </div>
+        </div>
+      </div>
+      
+      <div class="academicImageContainer">
+        <img 
+          src="https://www.fct.unl.pt/sites/default/files/imagecache/l740/imagens/noticias/2021/02/campusfct.png" 
+          alt="Academic illustration" 
+          class="academicImage"
+        >
+        <img 
+          src="https://forum.pt/images/IADE_1.jpg" 
+          alt="Academic illustration" 
+          class="academicImage"
+        >
+      </div>
+        
     </div>
   </div>
 </template>
@@ -45,8 +74,8 @@ export default {
       surname: 'Lemos Fernandes',
       description: 'I am a Software Engeneer, passionate about gain tech knowledge and improve my self.',
       academicLife: [
-        { title: 'Bachelors in Computer Science and Engineering', University: 'New University of Lisbon, FCT', year: '2021 - 2024' },
-        { title: 'Post Graduated in Cibersecurity', description: 'European University', year: '2024 - 2025' }
+        { title: 'Bachelors in Computer Science and Engineering', university: 'New University of Lisbon, FCT', year: '2021 - 2024' },
+        { title: 'Post Graduated in Cibersecurity', university: 'European University', year: '2024 - 2025' }
       ],
       projects: [
         { title: 'Project 1', description: 'Description 1', year: '2021', link: '' },
@@ -60,6 +89,18 @@ export default {
         { title: 'Software Engeneer', company: 'Company 3', year: '2023 - 2024' },
       ]
     }
+  },
+  methods: {
+    handleSectionClick(title) {
+      const titles = document.querySelectorAll('.title');
+      const targetTitle = Array.from(titles).find(element => 
+        element.textContent.trim().toLowerCase() === title.toLowerCase()
+      );
+      
+      if (targetTitle) {
+        targetTitle.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   }
 }
 
@@ -70,10 +111,8 @@ export default {
 
 <style>
 body {
-  /* display: flex; */
   background-color: #080808;
   font-family: Arial, Helvetica, sans-serif;
-
 }
 
 .centerContainer {
@@ -87,9 +126,6 @@ body {
   width: 400px;
   height: 400px;
   border-radius: 50%;
-  /* position: absolute;
-  left: 55%;
-  margin-top: 50px; */
   grid-column: 1;
 }
 
@@ -98,16 +134,47 @@ body {
   grid-template-columns: 50% 50%;
   grid-column-start: 1;
   gap: 10px;
-  align-items: center;
-
 }
 
 .descriptionContainer {
   grid-column: 2;
   overflow: visible;
+  align-self: center;
+
 }
 
 .name {
   color: white;
+}
+.academicLifeContainer {
+  color: white;
+  align-self: start;
+  margin-top: 20px;
+
+}
+
+.academicLifeContainer p {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #cccccc;
+}
+
+.academicUniversity {
+  padding-top: 25px;
+}
+
+.academicImage {
+  max-width: 30%;
+  height: auto;
+  margin-left: 50%;
+  margin-top: 30px;
+  border-radius: 10px;
+}
+
+.title{
+  color: white;
+  text-align: center;
+  margin-top: 50px;
+  
 }
 </style>
