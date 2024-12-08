@@ -41,7 +41,7 @@
 
     <h1 class="title">{{ fields[2].title }}</h1>
     <div class="gridHalf">
-      <div>
+      <div class="projectsContainer">
         <div v-for="project in projects" :key="project.title">
           <div>
             <h3>{{ project.title }}</h3>
@@ -57,7 +57,7 @@
 
     <h1 class="title">{{ fields[3].title }}</h1>
     <div class="gridHalf">
-      <div>
+      <div class="experienceContainer">
         <div v-for="exp in experience" :key="exp.title">
           <div>
             <h3>{{ exp.title }}</h3>
@@ -101,17 +101,17 @@ export default {
         { title: 'Post Graduated in Cibersecurity', university: 'European University', year: '2024 - 2025' }
       ],
       projects: [
-        { title: 'Project 1', description: 'Description 1', year: '2021', link: '' },
-        { title: 'Project 2', description: 'Description 2', year: '2022', link: '' },
-        { title: 'Project 3', description: 'Description 3', year: '2023', link: '' },
-        { title: 'Project 4', description: 'Description 4', year: '2024', link: '' },
+        { title: 'Invoice Reader', description: 'This project is a tool that allows you to upload invoices, and extract the data from them, saving it in a postgres database.', year: '2021', link: '' },
+        { title: 'FreeCol Game Extension', description: 'This was a project from a subject at university, where we had to create 3 new features from an open source game.', year: '2022', link: 'https://github.com/LemosFTW/Freecol-New-Features' },
+        { title: 'Image Reader', description: 'This project is a tool that reads images and extract the content from them.', year: '2023', link: 'https://github.com/LemosFTW/NextJs_Read_Image_Content' },
+        { title: 'Portifolio (Source Code from this WebPage)', description: 'Portifolio page.', year: '2024', link: 'https://github.com/LemosFTW/Portifolio' },
       ],
       experience: [
-        { title: 'Software Engeneer', company: 'Company 1', year: '2022 - 2023' },
-        { title: 'Software Engeneer', company: 'Company 2', year: '2022 - 2023' },
-        { title: 'Software Engeneer', company: 'Company 3', year: '2023 - 2024' },
+        { title: 'FrontEnd Developer - Volunteer', company: 'Ocas GNO', year: '2023' },
+        { title: 'FullStack Software Engeneer - Internship', company: 'Clearis S.A.', year: '2024' },
+        { title: 'Backend Software Engeneer', company: 'DUOP', year: '2024' },
       ]
-    }
+    } 
   },
   methods: {
     handleSectionClick(title) {
@@ -217,4 +217,41 @@ body {
 .centerContainer:first-of-type {
   padding-top: 80px;
 }
+
+.projectsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.projectsContainer h3 {
+  margin-bottom: 0;
+  color: white;
+}
+
+.projectsContainer p {
+  margin-top: 0;
+  color: #cccccc;
+}
+
+.projectsContainer p:first-of-type {
+  grid-column: 2;
+}
+
+.experienceContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+} 
+
+.experienceContainer h3 {
+  margin-bottom: 0;
+  color: white;
+}
+
+.experienceContainer p {
+  margin-top: 0;
+  color: #cccccc;
+}
+
 </style>
