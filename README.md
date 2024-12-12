@@ -23,11 +23,7 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-
-
 ### TODO:
-
 -> Get an better icon for linkedin and fix it to work as it should.
 -> Create Cards to each project in this portifolio, removing this "ver projeto"
 -> Add tech icons to each technology i've worked
--> Responsive content

@@ -1,4 +1,5 @@
 <template>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <div class="headerFixed">
     <HeaderComponent :fields="fields" :icons="icons" @section-click="handleSectionClick" />
   </div>
@@ -252,6 +253,86 @@ body {
 .experienceContainer p {
   margin-top: 0;
   color: #cccccc;
+}
+
+@media screen and (max-width: 768px) {
+  .centerContainer {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .gridHalf {
+    grid-template-columns: 1fr; /* Muda para uma coluna única */
+    gap: 20px;
+  }
+
+  .imageProfile {
+    width: 300px;
+    height: 300px;
+    margin: 30px auto;
+    display: block;
+  }
+
+  .descriptionContainer {
+    grid-column: 1;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .academicImage {
+    margin-left: 0;
+    max-width: 80%;
+    display: block;
+    margin: 20px auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .imageProfile {
+    width: 250px;
+    height: 250px;
+  }
+
+  .centerContainer {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  .name {
+    font-size: 1.5rem;
+  }
+
+  .academicImage {
+    max-width: 100%;
+  }
+
+  .headerFixed {
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.flex-item {
+  flex: 1;
+  min-width: 300px;
 }
 
 </style>

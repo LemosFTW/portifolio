@@ -21,3 +21,6 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+#readme De exemplos
+README_IMPLEMENTATION.md
