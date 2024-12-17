@@ -44,7 +44,7 @@
     <div class="gridHalf">
       <div class="projectsContainer">
         <div v-for="project in projects" :key="project.title">
-          <div>
+          <div class="card">
             <h3>{{ project.title }}</h3>
             <p>{{ project.description }}</p>
             <p>{{ project.year }}</p>
@@ -60,7 +60,7 @@
     <div class="gridHalf">
       <div class="experienceContainer">
         <div v-for="exp in experience" :key="exp.title">
-          <div>
+          <div class="card">
             <h3>{{ exp.title }}</h3>
             <p>{{ exp.company }} - {{ exp.year }}</p>
           </div>
@@ -155,7 +155,7 @@ body {
 
 .gridHalf {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 1fr 1fr;
   grid-column-start: 1;
   gap: 10px;
 }
@@ -220,6 +220,7 @@ body {
 }
 
 .projectsContainer {
+  grid-column: 1/-1;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -240,6 +241,7 @@ body {
 }
 
 .experienceContainer {
+  grid-column: 1/-1;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -333,6 +335,17 @@ body {
 .flex-item {
   flex: 1;
   min-width: 300px;
+}
+
+.card {
+  background-color: #1B1B1B;
+  border-radius: 10px;
+  padding: 20px;
+  grid-template-columns: 1fr;
+  /* grid-column-start: 1; */
+  /* grid-column-end: span 2; */
+  
+  
 }
 
 </style>
