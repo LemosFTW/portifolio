@@ -227,7 +227,7 @@ body {
 }
 
 .projectsContainer h3 {
-  margin-bottom: 0;
+  margin-bottom: 2rem;
   color: white;
 }
 
