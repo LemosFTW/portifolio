@@ -73,6 +73,9 @@
               <BsCalendar4Range class="calendar-icon" />
               {{ exp.company }} - {{ exp.year }}
             </p>
+            <div v-for="description in exp.description" :key="description">
+              <p><AkPointerRightFill class="pointer-icon" style="scale: 0.85;" /> {{ description }}</p>
+            </div>
           
             <div class="techContainer">
               <div v-for="(Tech, index) in exp.tech" :key="index" class="tech-icon">
@@ -92,13 +95,17 @@
 import HeaderComponent from './components/HeaderComponent.vue'
 import DescriptionComponent from './components/descriptionComponent.vue';
 import { DeLinkedinPlain,AkGithubFill,DeNodejsPlainWordmark ,DeVuejsOriginal, BsCalendar4Range, DeReactOriginal, DePostgresqlPlainWordmark, DeHtml5Original, DeCss3Original, DeJavascriptOriginal, DeTypescriptPlain, DePythonOriginalWordmark, DeJavaOriginal, DeDockerOriginal, DeGitOriginal, DeNextjsOriginalWordmark, DeNestjsOriginalWordmark, DeMongodbPlainWordmark } from '@kalimahapps/vue-icons';
+import { AkPointerRightFill } from '@kalimahapps/vue-icons';
+import { DeAmazonwebservicesPlainWordmark } from '@kalimahapps/vue-icons';
 export default {
   
   name: 'App',
   components: {
     HeaderComponent,
     DescriptionComponent,
+    DeAmazonwebservicesPlainWordmark,
     DeLinkedinPlain,
+    AkPointerRightFill,
     AkGithubFill,
     DeNodejsPlainWordmark,
     BsCalendar4Range,
@@ -143,9 +150,9 @@ export default {
         { title: 'Portifolio (Source Code from this WebPage)', description: 'Portifolio page.', year: '2024', link: 'https://github.com/LemosFTW/Portifolio' , tech: [DeVuejsOriginal, DeGitOriginal]},
       ],
       experience: [
-        { title: 'FrontEnd Developer - Volunteer', company: 'Ocas GNO', year: '2023', tech: [DeHtml5Original, DeCss3Original, DeJavascriptOriginal, DeGitOriginal] },
-        { title: 'FullStack Software Engeneer - Internship', company: 'Clearis S.A.', year: '2024', tech: [DeReactOriginal, DeVuejsOriginal, DeTypescriptPlain, DeCss3Original, DeMongodbPlainWordmark,DeGitOriginal] },
-        { title: 'Backend Software Engeneer', company: 'DUOP', year: '2024', tech: [DePythonOriginalWordmark, DePostgresqlPlainWordmark, DeJavascriptOriginal, DeGitOriginal] },
+        { title: 'FrontEnd Developer - Volunteer', company: 'Ocas GNO', year: '2023', description: ['Worked for OCAS ONG, building their Website.','Leader of the development team to build the website.'] , tech: [DeHtml5Original, DeCss3Original, DeJavascriptOriginal, DeGitOriginal] },
+        { title: 'FullStack Software Engeneer - Internship', company: 'Clearis S.A.', year: '2024',description: ["I've worked for Clearis, developing an application to manage product demand, product delivery by suppliers, and contract management.",'The main client was Galp and their subsidiaries all around the world.','The main project I developed was a client and supplier chat, wherein suppliers communicate with Galp to resolve pending issues.'] , tech: [DeReactOriginal, DeVuejsOriginal, DeTypescriptPlain, DeCss3Original, DeMongodbPlainWordmark,DeGitOriginal] },
+        { title: 'Backend Software Engeneer', company: 'DUOP', year: '2024', description: ["Worked for DUOP, building a whatsapp chatbot using Python and AI Agents to answer the clients.","To build the AI Agents, I had to set all the Knowledge Bases using Pinecone (Vector Database) and to automate the process I had to create some lambdas functions in AWS."] ,   tech: [DePythonOriginalWordmark, DePostgresqlPlainWordmark, DeJavascriptOriginal,DeAmazonwebservicesPlainWordmark, DeGitOriginal] },
       ]
     } 
   },
