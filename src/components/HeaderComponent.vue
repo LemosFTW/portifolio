@@ -6,9 +6,7 @@
         </div>
 
         <div v-for="icon in icons" :key="icon.title">
-            <h1>
-                <img :src="icon.imageUrl" alt="test" class="iconLink">
-            </h1>
+            <component :is="icon.imageUrl" class="iconLink" @click="$emit('icon-click', icon.url)"/>
         </div>
     </div>
 </template>
@@ -45,7 +43,18 @@ export default {
     height: 20px;
 }
 .iconLink{
-    /* Remove the background of the image */
     background-color: transparent;
+    width: 20px;
+    height: 20px;
+    display: block;
+    padding: 10px;
+}
+
+.container > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 10px;
 }
 </style>

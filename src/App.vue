@@ -12,7 +12,7 @@
 
       <div class="descriptionContainer">
         <h1 class="name">{{ name }} {{ surname }}</h1>
-        <DescriptionComponent :description="description" />
+        <DescriptionComponent :description="description" @icon-click="handleIconClick" />
       </div>
       
 
@@ -73,6 +73,12 @@
               <BsCalendar4Range class="calendar-icon" />
               {{ exp.company }} - {{ exp.year }}
             </p>
+          
+            <div class="techContainer">
+              <div v-for="(Tech, index) in exp.tech" :key="index" class="tech-icon">
+                <component :is="Tech" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -85,14 +91,16 @@
 
 import HeaderComponent from './components/HeaderComponent.vue'
 import DescriptionComponent from './components/descriptionComponent.vue';
-import {DeVuejsOriginal, BsCalendar4Range, DeReactOriginal, DePostgresqlPlainWordmark, DeHtml5Original, DeCss3Original, DeJavascriptOriginal, DeTypescriptPlain, DePythonOriginalWordmark, DeJavaOriginal, DeDockerOriginal, DeGitOriginal, DeNextjsOriginalWordmark, DeNestjsOriginalWordmark, DeMongodbPlainWordmark } from '@kalimahapps/vue-icons';
-
-
+import { DeLinkedinPlain,AkGithubFill,DeNodejsPlainWordmark ,DeVuejsOriginal, BsCalendar4Range, DeReactOriginal, DePostgresqlPlainWordmark, DeHtml5Original, DeCss3Original, DeJavascriptOriginal, DeTypescriptPlain, DePythonOriginalWordmark, DeJavaOriginal, DeDockerOriginal, DeGitOriginal, DeNextjsOriginalWordmark, DeNestjsOriginalWordmark, DeMongodbPlainWordmark } from '@kalimahapps/vue-icons';
 export default {
+  
   name: 'App',
   components: {
     HeaderComponent,
     DescriptionComponent,
+    DeLinkedinPlain,
+    AkGithubFill,
+    DeNodejsPlainWordmark,
     BsCalendar4Range,
     DeReactOriginal,
     DePostgresqlPlainWordmark,
@@ -118,8 +126,8 @@ export default {
         { title: 'Experience', description: '', externalContent: false }
       ],
       icons: [
-        { title: '', imageUrl: require('@/assets/linkedinIcon.jpg'), externalContent: true },
-        // { title: '', imageUrl: require('@/assets/githubIcon.jpg'), externalContent: true }
+        { title: 'Linkedin', imageUrl: DeLinkedinPlain, url: 'https://www.linkedin.com/in/rodrigolemosdev/' },
+        { title: 'Github', imageUrl: AkGithubFill, url: 'https://github.com/LemosFTW' },
       ],
       name: 'Rodrigo',
       surname: 'Lemos Fernandes',
@@ -129,15 +137,15 @@ export default {
         { title: 'Post Graduated in Cibersecurity', university: 'European University', year: '2024 - 2025' }
       ],
       projects: [
-        { title: 'Invoice Reader', description: 'This project is a tool that allows you to upload invoices, and extract the data from them, saving it in a postgres database.', year: '2021', link: 'https://github.com/LemosFTW/Backend-InvoiceReader', tech: [DePostgresqlPlainWordmark, DeJavascriptOriginal, DeTypescriptPlain, DeReactOriginal, DeNextjsOriginalWordmark, DeNestjsOriginalWordmark]},
+        { title: 'Invoice Reader', description: 'This project is a tool that allows you to upload invoices, and extract the data from them, saving it in a postgres database.', year: '2021', link: 'https://github.com/LemosFTW/Backend-InvoiceReader', tech: [DePostgresqlPlainWordmark, DeJavascriptOriginal, DeTypescriptPlain, DeReactOriginal, DeNextjsOriginalWordmark, DeNestjsOriginalWordmark, DeGitOriginal]},
         { title: 'FreeCol Game Extension', description: 'This was a project from a subject at university, where we had to create 3 new features from an open source game.', year: '2022', link: 'https://github.com/LemosFTW/Freecol-New-Features' , tech: [DeJavaOriginal, DeGitOriginal]},
-        { title: 'Image Reader', description: 'This project is a tool that reads images and extract the content from them.', year: '2023', link: 'https://github.com/LemosFTW/NextJs_Read_Image_Content', tech: [DeReactOriginal, DeNextjsOriginalWordmark, DeTypescriptPlain, DeCss3Original, DeHtml5Original]},
-        { title: 'Portifolio (Source Code from this WebPage)', description: 'Portifolio page.', year: '2024', link: 'https://github.com/LemosFTW/Portifolio' , tech: [DeVuejsOriginal]},
+        { title: 'Image Reader', description: 'This project is a tool that reads images and extract the content from them.', year: '2023', link: 'https://github.com/LemosFTW/NextJs_Read_Image_Content', tech: [DeReactOriginal, DeNextjsOriginalWordmark, DeTypescriptPlain, DeCss3Original, DeHtml5Original, DeGitOriginal]},
+        { title: 'Portifolio (Source Code from this WebPage)', description: 'Portifolio page.', year: '2024', link: 'https://github.com/LemosFTW/Portifolio' , tech: [DeVuejsOriginal, DeGitOriginal]},
       ],
       experience: [
-        { title: 'FrontEnd Developer - Volunteer', company: 'Ocas GNO', year: '2023' },
-        { title: 'FullStack Software Engeneer - Internship', company: 'Clearis S.A.', year: '2024' },
-        { title: 'Backend Software Engeneer', company: 'DUOP', year: '2024' },
+        { title: 'FrontEnd Developer - Volunteer', company: 'Ocas GNO', year: '2023', tech: [DeHtml5Original, DeCss3Original, DeJavascriptOriginal, DeGitOriginal] },
+        { title: 'FullStack Software Engeneer - Internship', company: 'Clearis S.A.', year: '2024', tech: [DeReactOriginal, DeVuejsOriginal, DeTypescriptPlain, DeCss3Original, DeMongodbPlainWordmark,DeGitOriginal] },
+        { title: 'Backend Software Engeneer', company: 'DUOP', year: '2024', tech: [DePythonOriginalWordmark, DePostgresqlPlainWordmark, DeJavascriptOriginal, DeGitOriginal] },
       ]
     } 
   },
@@ -155,6 +163,11 @@ export default {
     handleClickProject(link) {
       if (link) {
         window.open(link, '_blank');
+      }
+    },
+    handleIconClick(url) {
+      if (url) {
+        window.open(url, '_blank');
       }
     }
   }
