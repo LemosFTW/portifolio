@@ -14,7 +14,7 @@
         <h1 class="name">{{ name }} {{ surname }}</h1>
         <DescriptionComponent :description="description" />
       </div>
-
+      
 
 
     </div>
@@ -44,13 +44,20 @@
     <div class="gridHalf">
       <div class="projectsContainer">
         <div v-for="project in projects" :key="project.title">
-          <div class="card">
+          <div class="card" @click="handleClickProject(project.link)">
             <h3>{{ project.title }}</h3>
             <p>{{ project.description }}</p>
-            <p>{{ project.year }}</p>
-            <a v-if="project.link" :href="project.link">
+            <p><BsCalendar4Range class="calendar-icon" /> {{ project.year }}</p>
+            <button v-if="project.link" 
+                    @click="handleClickProject(project.link)" 
+                    class="project-button">
               Ver projeto
-            </a>
+            </button>
+            <div class="techContainer">
+              <div v-for="(Tech, index) in project.tech" :key="index" class="tech-icon">
+                <component :is="Tech" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -62,7 +69,10 @@
         <div v-for="exp in experience" :key="exp.title">
           <div class="card">
             <h3>{{ exp.title }}</h3>
-            <p>{{ exp.company }} - {{ exp.year }}</p>
+            <p class="experience-date">
+              <BsCalendar4Range class="calendar-icon" />
+              {{ exp.company }} - {{ exp.year }}
+            </p>
           </div>
         </div>
       </div>
@@ -75,12 +85,29 @@
 
 import HeaderComponent from './components/HeaderComponent.vue'
 import DescriptionComponent from './components/descriptionComponent.vue';
+import {DeVuejsOriginal, BsCalendar4Range, DeReactOriginal, DePostgresqlPlainWordmark, DeHtml5Original, DeCss3Original, DeJavascriptOriginal, DeTypescriptPlain, DePythonOriginalWordmark, DeJavaOriginal, DeDockerOriginal, DeGitOriginal, DeNextjsOriginalWordmark, DeNestjsOriginalWordmark, DeMongodbPlainWordmark } from '@kalimahapps/vue-icons';
+
 
 export default {
   name: 'App',
   components: {
     HeaderComponent,
-    DescriptionComponent
+    DescriptionComponent,
+    BsCalendar4Range,
+    DeReactOriginal,
+    DePostgresqlPlainWordmark,
+    DeHtml5Original,
+    DeCss3Original,
+    DeJavascriptOriginal,
+    DeTypescriptPlain,
+    DePythonOriginalWordmark,
+    DeJavaOriginal,
+    DeDockerOriginal,
+    DeGitOriginal,
+    DeNextjsOriginalWordmark,
+    DeNestjsOriginalWordmark,
+    DeMongodbPlainWordmark,
+    DeVuejsOriginal
   },
   data() {
     return {
@@ -102,10 +129,10 @@ export default {
         { title: 'Post Graduated in Cibersecurity', university: 'European University', year: '2024 - 2025' }
       ],
       projects: [
-        { title: 'Invoice Reader', description: 'This project is a tool that allows you to upload invoices, and extract the data from them, saving it in a postgres database.', year: '2021', link: '' },
-        { title: 'FreeCol Game Extension', description: 'This was a project from a subject at university, where we had to create 3 new features from an open source game.', year: '2022', link: 'https://github.com/LemosFTW/Freecol-New-Features' },
-        { title: 'Image Reader', description: 'This project is a tool that reads images and extract the content from them.', year: '2023', link: 'https://github.com/LemosFTW/NextJs_Read_Image_Content' },
-        { title: 'Portifolio (Source Code from this WebPage)', description: 'Portifolio page.', year: '2024', link: 'https://github.com/LemosFTW/Portifolio' },
+        { title: 'Invoice Reader', description: 'This project is a tool that allows you to upload invoices, and extract the data from them, saving it in a postgres database.', year: '2021', link: '', tech: [DePostgresqlPlainWordmark, DeJavascriptOriginal, DeTypescriptPlain, DeReactOriginal, DeNextjsOriginalWordmark, DeNestjsOriginalWordmark]},
+        { title: 'FreeCol Game Extension', description: 'This was a project from a subject at university, where we had to create 3 new features from an open source game.', year: '2022', link: 'https://github.com/LemosFTW/Freecol-New-Features' , tech: [DeJavaOriginal, DeGitOriginal]},
+        { title: 'Image Reader', description: 'This project is a tool that reads images and extract the content from them.', year: '2023', link: 'https://github.com/LemosFTW/NextJs_Read_Image_Content', tech: [DeReactOriginal, DeNextjsOriginalWordmark, DeTypescriptPlain, DeCss3Original, DeHtml5Original]},
+        { title: 'Portifolio (Source Code from this WebPage)', description: 'Portifolio page.', year: '2024', link: 'https://github.com/LemosFTW/Portifolio' , tech: [DeVuejsOriginal]},
       ],
       experience: [
         { title: 'FrontEnd Developer - Volunteer', company: 'Ocas GNO', year: '2023' },
@@ -123,6 +150,11 @@ export default {
 
       if (targetTitle) {
         targetTitle.scrollIntoView({ behavior: 'smooth' });
+      }
+    },
+    handleClickProject(link) {
+      if (link) {
+        window.open(link, '_blank');
       }
     }
   }
@@ -347,5 +379,64 @@ body {
   
   
 }
+.card:hover {
+  background-color: #2B2B2B;
+}
+
+.experience-date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.calendar-icon {
+  width: 16px;
+  height: 16px;
+  color: #cccccc;
+}
+
+.techContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.tech-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-icon svg {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.2s ease;
+}
+
+.tech-icon:hover svg {
+  transform: scale(1.2);
+}
+
+.project-button {
+  background-color: #42b983;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 12px;
+  transition: background-color 0.2s ease;
+}
+
+.project-button:hover {
+  background-color: #3aa876;
+}
+
+
+
 
 </style>
