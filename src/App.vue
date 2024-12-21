@@ -94,15 +94,15 @@
 
 import HeaderComponent from './components/HeaderComponent.vue'
 import DescriptionComponent from './components/descriptionComponent.vue';
-import { DeLinkedinPlain,AkGithubFill,DeNodejsPlainWordmark ,DeVuejsOriginal, BsCalendar4Range, DeReactOriginal, DePostgresqlPlainWordmark, DeHtml5Original, DeCss3Original, DeJavascriptOriginal, DeTypescriptPlain, DePythonOriginalWordmark, DeJavaOriginal, DeDockerOriginal, DeGitOriginal, DeNextjsOriginalWordmark, DeNestjsOriginalWordmark, DeMongodbPlainWordmark } from '@kalimahapps/vue-icons';
-import { AkPointerRightFill } from '@kalimahapps/vue-icons';
-import { DeAmazonwebservicesPlainWordmark } from '@kalimahapps/vue-icons';
+import { DeLinkedinPlain,BxGmail,AkPointerRightFill,DeAmazonwebservicesPlainWordmark,AkGithubFill,DeNodejsPlainWordmark ,DeVuejsOriginal, BsCalendar4Range, DeReactOriginal, DePostgresqlPlainWordmark, DeHtml5Original, DeCss3Original, DeJavascriptOriginal, DeTypescriptPlain, DePythonOriginalWordmark, DeJavaOriginal, DeDockerOriginal, DeGitOriginal, DeNextjsOriginalWordmark, DeNestjsOriginalWordmark, DeMongodbPlainWordmark } from '@kalimahapps/vue-icons';
+
 export default {
   
   name: 'App',
   components: {
     HeaderComponent,
     DescriptionComponent,
+    BxGmail,
     DeAmazonwebservicesPlainWordmark,
     DeLinkedinPlain,
     AkPointerRightFill,
@@ -135,6 +135,7 @@ export default {
       icons: [
         { title: 'Linkedin', imageUrl: DeLinkedinPlain, url: 'https://www.linkedin.com/in/rodrigolemosdev/' },
         { title: 'Github', imageUrl: AkGithubFill, url: 'https://github.com/LemosFTW' },
+        { title: 'Gmail', imageUrl: BxGmail, url: 'mailto:rlemos584@gmail.com' },
       ],
       name: 'Rodrigo',
       surname: 'Lemos Fernandes',
