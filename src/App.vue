@@ -1,7 +1,7 @@
 <template>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <div class="headerFixed">
-    <HeaderComponent :fields="fields" :icons="icons" @section-click="handleSectionClick" />
+    <HeaderComponent :fields="fields" :icons="icons" @section-click="handleSectionClick" @icon-click="handleIconClick" />
   </div>
   <h1 class="title">{{ fields[0].title }}</h1>
   <div class="centerContainer">
@@ -12,7 +12,7 @@
 
       <div class="descriptionContainer">
         <h1 class="name">{{ name }} {{ surname }}</h1>
-        <DescriptionComponent :description="description" @icon-click="handleIconClick" />
+        <DescriptionComponent :description="description"  />
       </div>
       
 
@@ -174,7 +174,11 @@ export default {
       }
     },
     handleIconClick(url) {
-      if (url) {
+      if (!url) return;
+      
+      if (url.startsWith('mailto:')) {
+        window.location.href = url;
+      } else {
         window.open(url, '_blank');
       }
     }
