@@ -51,7 +51,7 @@
             <button v-if="project.link" 
                     @click="handleClickProject(project.link)" 
                     class="project-button">
-              Ver projeto
+              Go to Project
             </button>
             <div class="techContainer">
               <div v-for="(Tech, index) in project.tech" :key="index" class="tech-icon">
@@ -145,15 +145,15 @@ export default {
         { title: 'Post Graduated in Cibersecurity', university: 'European University', year: '2024 - 2025' }
       ],
       projects: [
-        { title: 'Invoice Reader', description: 'This project is a tool that allows you to upload invoices, and extract the data from them, saving it in a postgres database.', year: '2021', link: 'https://github.com/LemosFTW/Backend-InvoiceReader', tech: [DePostgresqlPlainWordmark, DeJavascriptOriginal, DeTypescriptPlain, DeReactOriginal, DeNextjsOriginalWordmark, DeNestjsOriginalWordmark, DeGitOriginal]},
-        { title: 'FreeCol Game Extension', description: 'This was a project from a subject at university, where we had to create 3 new features from an open source game.', year: '2022', link: 'https://github.com/LemosFTW/Freecol-New-Features' , tech: [DeJavaOriginal, DeGitOriginal]},
-        { title: 'Image Reader', description: 'This project is a tool that reads images and extract the content from them.', year: '2023', link: 'https://github.com/LemosFTW/NextJs_Read_Image_Content', tech: [DeReactOriginal, DeNextjsOriginalWordmark, DeTypescriptPlain, DeCss3Original, DeHtml5Original, DeGitOriginal]},
+        { title: 'Invoice Reader', description: 'This project is a tool that allows you to upload invoices, and extract the data from them, saving it in a postgres database.', year: '2023', link: 'https://github.com/LemosFTW/Backend-InvoiceReader', tech: [DePostgresqlPlainWordmark, DeJavascriptOriginal, DeTypescriptPlain, DeReactOriginal, DeNextjsOriginalWordmark, DeNestjsOriginalWordmark, DeGitOriginal]},
+        { title: 'FreeCol Game Extension', description: 'This was a project from a subject at university, where we had to create 3 new features from an open source game.', year: '2023', link: 'https://github.com/LemosFTW/Freecol-New-Features' , tech: [DeJavaOriginal, DeGitOriginal]},
+        { title: 'Image Reader', description: 'This project is a tool that reads images and extract the content from them.', year: '2024', link: 'https://github.com/LemosFTW/NextJs_Read_Image_Content', tech: [DeReactOriginal, DeNextjsOriginalWordmark, DeTypescriptPlain, DeCss3Original, DeHtml5Original, DeGitOriginal]},
         { title: 'Portifolio (Source Code from this WebPage)', description: 'Portifolio page.', year: '2024', link: 'https://github.com/LemosFTW/Portifolio' , tech: [DeVuejsOriginal, DeGitOriginal]},
       ],
       experience: [
-        { title: 'FrontEnd Developer - Volunteer', company: 'Ocas GNO', year: '2023', description: ['Worked for OCAS ONG, building their Website.','Leader of the development team to build the website.'] , tech: [DeHtml5Original, DeCss3Original, DeJavascriptOriginal, DeGitOriginal] },
-        { title: 'FullStack Software Engeneer - Internship', company: 'Clearis S.A.', year: '2024',description: ["I've worked for Clearis, developing an application to manage product demand, product delivery by suppliers, and contract management.",'The main client was Galp and their subsidiaries all around the world.','The main project I developed was a client and supplier chat, wherein suppliers communicate with Galp to resolve pending issues.'] , tech: [DeReactOriginal, DeVuejsOriginal, DeTypescriptPlain, DeCss3Original, DeMongodbPlainWordmark,DeGitOriginal] },
-        { title: 'Backend Software Engeneer', company: 'DUOP', year: '2024', description: ["Worked for DUOP, building a whatsapp chatbot using Python and AI Agents to answer the clients.","To build the AI Agents, I had to set all the Knowledge Bases using Pinecone (Vector Database) and to automate the process I had to create some lambdas functions in AWS."] ,   tech: [DePythonOriginalWordmark, DePostgresqlPlainWordmark, DeJavascriptOriginal,DeAmazonwebservicesPlainWordmark, DeGitOriginal] },
+        { title: 'FrontEnd Developer - Volunteer', company: 'Ocas GNO', year: '2023', description: ['Worked for OCAS ONG, building their Website.','Leader of the development team to build the website.'] , tech: [DeHtml5Original, DeCss3Original, DeJavascriptOriginal, DeGitOriginal], link: '' },
+        { title: 'FullStack Software Engeneer - Internship', company: 'Clearis S.A.', year: '2024',description: ["I've worked for Clearis, developing an application to manage product demand, product delivery by suppliers, and contract management.",'The main client was Galp and their subsidiaries all around the world.','The main project I developed was a client and supplier chat, wherein suppliers communicate with Galp to resolve pending issues.'] , tech: [DeReactOriginal, DeVuejsOriginal, DeTypescriptPlain, DeCss3Original, DeMongodbPlainWordmark,DeGitOriginal], link: '' },
+        { title: 'Backend Software Engeneer', company: 'DUOP', year: '2024', description: ["Worked for DUOP, building a whatsapp chatbot using Python and AI Agents to answer the clients.","To build the AI Agents, I had to set all the Knowledge Bases using Pinecone (Vector Database) and to automate the process I had to create some lambdas functions in AWS."] ,   tech: [DePythonOriginalWordmark, DePostgresqlPlainWordmark, DeJavascriptOriginal,DeAmazonwebservicesPlainWordmark, DeGitOriginal, DeDockerOriginal], link: '' },
       ]
     } 
   },
