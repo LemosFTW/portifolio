@@ -1,28 +1,22 @@
 <template>
-
-
-    <div>
-        <p>
-            {{ description }}
-
-        </p>
-
-    </div>
-
+  <div>
+    <p>
+      {{ description }}
+    </p>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'HeaderComponent',
-    props: {
-        description: String,
-    }
-}
+  name: "HeaderComponent",
+  props: {
+    description: String,
+  },
+};
 </script>
 
 <style>
-p{
-    color: white;
+p {
+  color: white;
 }
-
 </style>
